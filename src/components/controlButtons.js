@@ -5,7 +5,7 @@ const controlButtons = () => {
 
 
 
-    
+
     return (
         <div className="controlButtons">
             <button>Next</button>

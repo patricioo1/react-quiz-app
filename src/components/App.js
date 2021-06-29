@@ -1,13 +1,13 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import './App.css';
-import NameOfUser from './User';
+import NameOfUser from './NameOfUser';
 import Logo from "../images/logozawka.png"
 import QuizContent from './QuizContent';
 
 
 function App() {
 
-  const [username, setUserName] = useState(undefined)
+  const [userName, setUserName] = useState()
 
   const handleUserName = () => {
     setUserName(true)
@@ -21,8 +21,8 @@ function App() {
         <h1>ZawkaQuiz</h1>
         <img src={Logo} alt="Logo" />
       </div>
-        {username ? <QuizContent /> : <NameOfUser onStart={handleUserName}/>}
-      </div>
+      {userName ? <QuizContent /> : <NameOfUser onStart={handleUserName} />}
+    </div>
   );
 }
 
