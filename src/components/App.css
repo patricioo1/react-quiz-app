@@ -111,7 +111,6 @@
 }
 
 .quizContainer .quizAnswers .answerButton {
-  /* background-color: orange; */
   width: 200px;
   height: 50px;
   border-radius: 50px;
@@ -125,10 +124,10 @@
   margin-right: 65px;
 }
 
-.correct {
-  background-color: rgb(16, 216, 16);
+.quizContainer .quizAnswers .answerButton.correct {
+  background: rgb(16, 216, 16);
 }
 
-.wrong {
-  background-color: red;
+.quizContainer .quizAnswers .answerButton.wrong {
+  background: red;
 }

@@ -4,27 +4,39 @@ const QuizContent = () => {
     const [error, setError] = useState(null);
     const [items, setItems] = useState([]);
     const [questionIndex, setQuestionIndex] = useState(0)
-    // const [trueAnswer, setCorrectAnswer] = useState(true)
+    const [trueAnswer, setCorrectAnswer] = useState()
+    const [dirty, setDirty] = useState(false)
 
     const questionState = items[questionIndex];
     const allAnswers = questionState?.answers;
     const correctAnswer = questionState?.correctAnswer;
 
-    // const detectUserAnswer = (e) => {
-    //     const clickUser = e.target.value;
-    //     console.log(clickUser)
-    // }
+    useEffect(() => {
+        setCorrectAnswer(correctAnswer)
+    }, [correctAnswer])
+
+    useEffect(() => {
+        setDirty(false)
+    }, [questionIndex])
 
     const selectCorrectAnswer = (e) => {
-        allAnswers.forEach((answer) => {
-            const clickUser = e.target.value;
-            console.log(clickUser)
-            if (clickUser === correctAnswer) {
-                console.log('Prawidłowa odpowiedź')
-            } else {
-                console.log('Nieprawidłowa odpowiedź')
-            }
-        });
+        const clickUser = e.target.value;
+        setDirty(true)
+        if (clickUser === correctAnswer) {
+            console.log(clickUser + ' to prawidłowa odpowiedź')
+            setCorrectAnswer(clickUser)
+        } else {
+            console.log('Prawidłowa odpowiedź to ' + trueAnswer)
+        }
+    }
+
+
+    const checkClickedAnswer = (answer) => {
+        if (dirty === false) {
+            return ' ';
+        } else {
+            return answer === correctAnswer ? 'correct' : 'wrong';
+        }
     }
 
     const handleAnswerClick = () => {
@@ -38,7 +50,6 @@ const QuizContent = () => {
             .then(res => res.json())
             .then(result => {
                 setItems(result);
-                // console.log(result)
             },
                 (error) => {
                     setError(error);
@@ -52,12 +63,14 @@ const QuizContent = () => {
         return (
             <div className="quizContainer">
                 <div className="quizQuestion">
+                <button onClick={handleAnswerClick}></button>
                     <h3>{questionState?.question}</h3>
                 </div>
                 <div className="quizAnswers">
-                    {questionState?.answers.map(answer => {
-                    return (
-                        <button value={answer} key={answer} className="answerButton" onClick={(e) => { handleAnswerClick(); selectCorrectAnswer(e) }}>{answer}</button>
+                    {allAnswers?.map(answer => {
+                        return (
+                            <button value={answer} key={answer} className={`answerButton ${checkClickedAnswer(answer)}`} onClick={(e) => {selectCorrectAnswer(e);
+                            }}>{answer}</button>
                         )
                     })}
                 </div>
