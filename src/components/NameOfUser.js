@@ -20,7 +20,7 @@ const NameOfUser = (props) => {
         <div className="userName">
             <h3>Podaj swoję imię, aby rozpocząć quiz</h3>
             <input type="text" placeholder="Twoje imię" onChange={(e) => handleInputValue(e)} />
-            <button
+            <button className="startButton"
                 onClick={(e) => {
                     if (value === '') {
                         alert('Wpisz swoje imię aby rozpocząć quiz :)')
