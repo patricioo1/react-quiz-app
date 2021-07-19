@@ -6,7 +6,6 @@ const FinishButton = (props) => {
 
     const pointsResult = () => {
         setFinalResult(true)
-        console.log('działa')
     }
 
 

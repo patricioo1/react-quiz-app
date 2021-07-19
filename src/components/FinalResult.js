@@ -1,12 +1,13 @@
 import React from 'react';
 
-const FinalResult = () => {
+const FinalResult = (props) => {
 
 
 
     return (
         <div className='finalResult'>
-            <p>KONIEC</p>
+            <p>{`Gratulacje ${props.onCheck}`}</p>
+            <p>{`Udało Ci się ukończyć quiz z wynikiem: ${props.onChange} pkt`}</p>
         </div>
     )
 }

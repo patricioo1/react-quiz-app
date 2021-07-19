@@ -1,12 +1,12 @@
 import React from 'react';
 
-const CounterResult = () => {
+const CounterResult = (props) => {
 
 
     return (
         <div className="counterResult">
             <span>Punkty: </span>
-            <span>0</span>
+            <span>{props.onSelect}</span>
         </div>
     )
 }

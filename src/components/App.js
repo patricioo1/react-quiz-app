@@ -4,38 +4,36 @@ import NameOfUser from './NameOfUser';
 import Logo from "../images/logozawka.png"
 import QuizContent from './QuizContent';
 import CounterResult from './CounterResult';
-import FinalResult from './FinalResult';
 
 
 function App() {
 
   const [userName, setUserName] = useState()
-  // const [finishQuiz, setFinishQuiz] = useState(false)
-  const [lastClick, setLastClick] = useState(false)
+  const [incrementScore, setIncrementScore] = useState()
+  const [checkUserName, setCheckUserName] = useState([])
 
   const handleUserName = () => {
     setUserName(true)
   }
 
-  // const finishQuizContent = () => {
-  //   setFinishQuiz(true)
-  //   console.log('POSZŁO')
-  // }
-
-  const checkIfLastClick = () => {
-    setLastClick(true)
+  const getUserName = (value) => {
+    setCheckUserName([checkUserName.push(value)])
+    console.log(checkUserName)
   }
 
+  const selectAnswer = (score) => {
+    setIncrementScore(score)
+    console.log(score)
+  }
 
   return (
     <div className="App">
       <div className="LogoWrapper">
         <h1>ZawkaQuiz</h1>
-        <CounterResult />
+        <CounterResult onSelect={incrementScore} />
         <img src={Logo} alt="Logo" />
       </div>
-      {userName ? <QuizContent onFinish={checkIfLastClick} /> : <NameOfUser onStart={handleUserName} />}
-      {lastClick ? <FinalResult /> : ''}
+      {userName ? <QuizContent onSelect={selectAnswer} onChange={checkUserName} /> : <NameOfUser onStart={handleUserName} onChange={getUserName} />}
     </div>
   );
 }

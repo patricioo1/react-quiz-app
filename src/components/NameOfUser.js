@@ -6,11 +6,11 @@ const NameOfUser = (props) => {
 
     const handleInputValue = (e) => {
         setValue(e.target.value.trim())
-        console.log(e.target.value);
     }
 
     const saveInputValue = () => {
         setMyArray([myArray.unshift(value)])
+        props.onChange(value)
         console.log(value);
         console.log(`${value} pushed to myArray`)
         console.log(myArray)
