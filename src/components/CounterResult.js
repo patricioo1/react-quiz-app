@@ -6,8 +6,7 @@ const CounterResult = (props) => {
     return (
         <div className="counterResult">
             <span>Punkty: </span>
-            <span>{props.onSelect}</span>
-            {console.log(props.onSelect)}
+            <span>{props.score}</span>
         </div>
     )
 }

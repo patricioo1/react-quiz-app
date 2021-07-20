@@ -8,7 +8,7 @@ import CounterResult from './CounterResult';
 
 function App() {
   const [userName, setUserName] = useState()
-  const [incrementScore, setIncrementScore] = useState()
+  const [incrementScore, setIncrementScore] = useState(0)
   const [checkUserName, setCheckUserName] = useState()
 
   const handleUserName = () => {
@@ -31,10 +31,10 @@ function App() {
     <div className="App">
       <div className="LogoWrapper">
         <h1>ZawkaQuiz</h1>
-        <CounterResult onSelect={incrementScore} />
+        <CounterResult score={incrementScore} />
         <img src={Logo} alt="Logo" />
       </div>
-      {userName ? <QuizContent onSelect={selectAnswer} onChange={checkUserName} /> : <NameOfUser onStart={handleUserName} onChange={sendUserName} />}
+      {userName ? <QuizContent score={selectAnswer} onChange={checkUserName} /> : <NameOfUser onStart={handleUserName} onChange={sendUserName} />}
     </div>
   );
 }

@@ -8,9 +8,8 @@ const QuizContent = (props) => {
     const [questionIndex, setQuestionIndex] = useState(0)
     const [dirty, setDirty] = useState(false)
     const [elementClicked, setElementClicked] = useState(false)
-    const [score, setScore] = useState(1)
+    const [score, setScore] = useState(0)
     const [preventButton, setPreventButton] = useState(true)
-    // const [userName, setUserName] = useState()
 
     const questionState = items[questionIndex];
     const allAnswers = questionState?.answers;
@@ -28,8 +27,7 @@ const QuizContent = (props) => {
         if (clickUser === correctAnswer && preventButton) {
             console.log(clickUser + ' to prawidłowa odpowiedź')
             setScore(score + 1)
-            console.log(score)
-            props.onSelect(score)
+            props.score(score + 1)
             setPreventButton(false)
         } else {
             console.log('Prawidłowa odpowiedź to ' + correctAnswer)

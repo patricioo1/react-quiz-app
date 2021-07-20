@@ -18,6 +18,7 @@ const NameOfUser = (props) => {
                         alert('Wpisz swoje imię aby rozpocząć quiz :)')
                         e.preventDefault();
                     } else {
+                        // saveInputValue();
                         props.onStart();
                         props.onChange(value);
                     }
