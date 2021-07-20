@@ -6,22 +6,17 @@ const QuizContent = (props) => {
     const [error, setError] = useState(null);
     const [items, setItems] = useState([]);
     const [questionIndex, setQuestionIndex] = useState(0)
-    const [trueAnswer, setCorrectAnswer] = useState()
     const [dirty, setDirty] = useState(false)
     const [elementClicked, setElementClicked] = useState(false)
-    const [lastQuestion, setLastQuestion] = useState(false)
-    const [finishQuiz, setFinishQuiz] = useState(false)
     const [score, setScore] = useState(1)
     const [preventButton, setPreventButton] = useState(true)
-    const [userName, setUserName] = useState([])
+    // const [userName, setUserName] = useState()
 
     const questionState = items[questionIndex];
     const allAnswers = questionState?.answers;
     const correctAnswer = questionState?.correctAnswer;
-
-    useEffect(() => {
-        setCorrectAnswer(correctAnswer)
-    }, [correctAnswer])
+    const isLastQuestion = (items.length - 1) === questionIndex;
+    const finishQuiz = questionIndex > (items.length - 1)
 
     useEffect(() => {
         setDirty(false)
@@ -32,13 +27,12 @@ const QuizContent = (props) => {
         setDirty(true)
         if (clickUser === correctAnswer && preventButton) {
             console.log(clickUser + ' to prawidłowa odpowiedź')
-            setCorrectAnswer(clickUser);
             setScore(score + 1)
             console.log(score)
             props.onSelect(score)
             setPreventButton(false)
         } else {
-            console.log('Prawidłowa odpowiedź to ' + trueAnswer)
+            console.log('Prawidłowa odpowiedź to ' + correctAnswer)
             setPreventButton(false)
         }
     }
@@ -60,19 +54,16 @@ const QuizContent = (props) => {
     }
 
     const checkLastQuestion = () => {
-        if (items.length - 1 === questionIndex) {
-            setLastQuestion(true)
+        if (isLastQuestion) {
+            return;
         }
     }
 
     const finishQuizContent = () => {
-        setFinishQuiz(true)
+        if (finishQuiz) {
+            return finishQuiz;
+        }
       }
-
-    const getUserName = () => {
-        setUserName([userName.push(props.onChange)])
-    }
-
 
     useEffect(() => {
         const questionsApi = `https://raw.githubusercontent.com/patricioo1/react-quiz-app/main/questions.json`
@@ -91,7 +82,9 @@ const QuizContent = (props) => {
         return <div><p>Error</p></div>
     } else if (finishQuiz) {
         return (
-            <FinalResult onChange={score} onCheck={getUserName} />
+            <>
+            <FinalResult onChange={score} onCheck={props.onChange} />
+            </>
         )}
         else {
         return (
@@ -107,8 +100,8 @@ const QuizContent = (props) => {
                         )
                     })}
                 </div>
-                {elementClicked ? <button className={`nextButton ${lastQuestion ? 'hiddenClass' : ''}`} onClick={() => {handleAnswerClick(); setElementClicked(false); setPreventButton(true)}}>NASTĘPNE</button> : ''}
-                {lastQuestion ? <FinishButton onClick={finishQuizContent} /> : ''}
+                {elementClicked && !isLastQuestion ? <button className='nextButton' onClick={() => {handleAnswerClick(); setElementClicked(false); setPreventButton(true)}}>NASTĘPNE</button> : ''}
+                {isLastQuestion && elementClicked? <FinishButton onClick={() => {finishQuizContent(); handleAnswerClick()}} /> : ''}
             </div>
         )
     }

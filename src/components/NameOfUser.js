@@ -2,18 +2,10 @@ import React, { useState } from 'react';
 
 const NameOfUser = (props) => {
     const [value, setValue] = useState('');
-    const [myArray, setMyArray] = useState([]);
 
     const handleInputValue = (e) => {
         setValue(e.target.value.trim())
-    }
-
-    const saveInputValue = () => {
-        setMyArray([myArray.unshift(value)])
-        props.onChange(value)
-        console.log(value);
-        console.log(`${value} pushed to myArray`)
-        console.log(myArray)
+        console.log(value)
     }
 
     return (
@@ -26,8 +18,8 @@ const NameOfUser = (props) => {
                         alert('Wpisz swoje imię aby rozpocząć quiz :)')
                         e.preventDefault();
                     } else {
-                        saveInputValue();
                         props.onStart();
+                        props.onChange(value);
                     }
                 }}>START</button>
         </div>

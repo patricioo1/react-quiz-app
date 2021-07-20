@@ -7,23 +7,24 @@ import CounterResult from './CounterResult';
 
 
 function App() {
-
   const [userName, setUserName] = useState()
   const [incrementScore, setIncrementScore] = useState()
-  const [checkUserName, setCheckUserName] = useState([])
+  const [checkUserName, setCheckUserName] = useState()
 
   const handleUserName = () => {
     setUserName(true)
   }
 
-  const getUserName = (value) => {
-    setCheckUserName([checkUserName.push(value)])
+  const sendUserName = (value) => {
+    setCheckUserName(value)
+    console.log(value)
     console.log(checkUserName)
   }
 
   const selectAnswer = (score) => {
     setIncrementScore(score)
     console.log(score)
+    console.log(incrementScore)
   }
 
   return (
@@ -33,7 +34,7 @@ function App() {
         <CounterResult onSelect={incrementScore} />
         <img src={Logo} alt="Logo" />
       </div>
-      {userName ? <QuizContent onSelect={selectAnswer} onChange={checkUserName} /> : <NameOfUser onStart={handleUserName} onChange={getUserName} />}
+      {userName ? <QuizContent onSelect={selectAnswer} onChange={checkUserName} /> : <NameOfUser onStart={handleUserName} onChange={sendUserName} />}
     </div>
   );
 }

@@ -4,14 +4,14 @@ const FinishButton = (props) => {
     const [finalResult, setFinalResult] = useState(false)
 
 
-    const pointsResult = () => {
+    const summaryPoints = () => {
         setFinalResult(true)
     }
 
 
     return (
         <div>
-            <button className={`finishButton ${finalResult ? 'hiddenClass' : ''}`} onClick={() => {pointsResult(); props.onClick()}}>ZAKOŃCZ</button>
+            <button className={`finishButton ${finalResult ? 'hiddenClass' : ''}`} onClick={() => {summaryPoints(); props.onClick()}}>ZAKOŃCZ</button>
         </div>
     )
 }
