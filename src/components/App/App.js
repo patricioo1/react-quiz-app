@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import './App.css';
-import NameOfUser from './NameOfUser';
-import Logo from "../images/logozawka.png"
+import NameOfUser from './NameOfUser/NameOfUser';
+import Logo from "../../images/logozawka.png"
 import QuizContent from './QuizContent/QuizContent';
-import CounterResult from './CounterResult';
+import CounterResult from './CounterResult/CounterResult';
 
 
 function App() {
@@ -29,9 +29,11 @@ function App() {
   return (
     <div className="App">
       <div className="LogoWrapper">
-        <h1>ZawkaQuiz</h1>
-        <CounterResult score={incrementScore} />
-        <img src={Logo} alt="Logo" />
+        <div className="CounterContainer">
+          <h1>ZawkaQuiz</h1>
+          <CounterResult score={incrementScore} />
+        </div>
+            <img src={Logo} alt="Logo" />
       </div>
       {userName ? <QuizContent onScore={selectAnswer} score={incrementScore} userName={checkUserName} /> : <NameOfUser onStart={handleUserName} onCheck={sendUserName} />}
     </div>
