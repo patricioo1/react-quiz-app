@@ -61,7 +61,7 @@ const QuizContent = (props) => {
     } else if (finishQuiz) {
         return (
             <>
-            <FinalResult onChange={props.score} userName={props.userName} />
+            <FinalResult score={props.score} userName={props.userName} />
             </>
         )}
         else {
