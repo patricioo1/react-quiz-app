@@ -20,7 +20,7 @@ const NameOfUser = (props) => {
                     } else {
                         // saveInputValue();
                         props.onStart();
-                        props.onChange(value);
+                        props.onCheck(value);
                     }
                 }}>START</button>
         </div>

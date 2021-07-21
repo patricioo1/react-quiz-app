@@ -7,9 +7,6 @@ const QuizContent = (props) => {
     const [items, setItems] = useState([]);
     const [questionIndex, setQuestionIndex] = useState(0)
     const [dirty, setDirty] = useState(false)
-    const [elementClicked, setElementClicked] = useState(false)
-    const [score, setScore] = useState(0)
-    const [preventButton, setPreventButton] = useState(true)
 
     const questionState = items[questionIndex];
     const allAnswers = questionState?.answers;
@@ -23,20 +20,15 @@ const QuizContent = (props) => {
 
     const selectCorrectAnswer = (e) => {
         const clickUser = e.target.value;
-        setDirty(true)
-        if (clickUser === correctAnswer && preventButton) {
+        setDirty(false)
+        if (clickUser === correctAnswer && !dirty) {
             console.log(clickUser + ' to prawidłowa odpowiedź')
-            setScore(score + 1)
-            props.score(score + 1)
-            setPreventButton(false)
+            props.onScore()
+            setDirty(true)
         } else {
             console.log('Prawidłowa odpowiedź to ' + correctAnswer)
-            setPreventButton(false)
+            setDirty(true)
         }
-    }
-
-    const elementWasClicked = () => {
-        setElementClicked(true)
     }
 
     const checkClickedAnswer = (answer) => {
@@ -50,18 +42,6 @@ const QuizContent = (props) => {
     const handleAnswerClick = () => {
         setQuestionIndex(questionIndex + 1)
     }
-
-    const checkLastQuestion = () => {
-        if (isLastQuestion) {
-            return;
-        }
-    }
-
-    const finishQuizContent = () => {
-        if (finishQuiz) {
-            return finishQuiz;
-        }
-      }
 
     useEffect(() => {
         const questionsApi = `https://raw.githubusercontent.com/patricioo1/react-quiz-app/main/questions.json`
@@ -81,7 +61,7 @@ const QuizContent = (props) => {
     } else if (finishQuiz) {
         return (
             <>
-            <FinalResult onChange={score} onCheck={props.onChange} />
+            <FinalResult onChange={props.score} userName={props.userName} />
             </>
         )}
         else {
@@ -93,13 +73,13 @@ const QuizContent = (props) => {
                 <div className="quizAnswers">
                     {allAnswers?.map(answer => {
                         return (
-                            <button value={answer} key={answer} className={`answerButton ${checkClickedAnswer(answer)}`} onClick={(e) => {selectCorrectAnswer(e); elementWasClicked(); checkLastQuestion()
+                            <button value={answer} key={answer} className={`answerButton ${checkClickedAnswer(answer)}`} onClick={(e) => {selectCorrectAnswer(e); setDirty(true)
                             }}>{answer}</button>
                         )
                     })}
                 </div>
-                {elementClicked && !isLastQuestion ? <button className='nextButton' onClick={() => {handleAnswerClick(); setElementClicked(false); setPreventButton(true)}}>NASTĘPNE</button> : ''}
-                {isLastQuestion && elementClicked? <FinishButton onClick={() => {finishQuizContent(); handleAnswerClick()}} /> : ''}
+                {dirty && !isLastQuestion ? <button className='nextButton' onClick={() => {handleAnswerClick()}}>NASTĘPNE</button> : ''}
+                {isLastQuestion && dirty ? <FinishButton onClick={() => handleAnswerClick()} /> : ''}
             </div>
         )
     }

@@ -21,9 +21,8 @@ function App() {
     console.log(checkUserName)
   }
 
-  const selectAnswer = (score) => {
-    setIncrementScore(score)
-    console.log(score)
+  const selectAnswer = () => {
+    setIncrementScore(incrementScore + 1)
     console.log(incrementScore)
   }
 
@@ -34,7 +33,7 @@ function App() {
         <CounterResult score={incrementScore} />
         <img src={Logo} alt="Logo" />
       </div>
-      {userName ? <QuizContent score={selectAnswer} onChange={checkUserName} /> : <NameOfUser onStart={handleUserName} onChange={sendUserName} />}
+      {userName ? <QuizContent onScore={selectAnswer} score={incrementScore} userName={checkUserName} /> : <NameOfUser onStart={handleUserName} onCheck={sendUserName} />}
     </div>
   );
 }
