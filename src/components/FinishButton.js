@@ -1,17 +1,11 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 const FinishButton = (props) => {
-    const [finalResult, setFinalResult] = useState(false)
-
-
-    const summaryPoints = () => {
-        setFinalResult(true)
-    }
 
 
     return (
         <div>
-            <button className={`finishButton ${finalResult ? 'hiddenClass' : ''}`} onClick={() => {summaryPoints(); props.onClick()}}>ZAKOŃCZ</button>
+            <button className='finishButton' onClick={() => props.onClick()}>ZAKOŃCZ</button>
         </div>
     )
 }
