@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './App.css';
 import NameOfUser from './NameOfUser';
 import Logo from "../images/logozawka.png"
-import QuizContent from './QuizContent';
+import QuizContent from './QuizContent/QuizContent';
 import CounterResult from './CounterResult';
 
 

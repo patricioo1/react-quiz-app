@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import FinishButton from './FinishButton';
-import FinalResult from './FinalResult';
+import FinishButton from './FinishButton/FinishButton';
+import FinalResult from './FinalResult/FinalResult';
 
 const QuizContent = (props) => {
     const [error, setError] = useState(null);
