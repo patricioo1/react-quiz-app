@@ -215,6 +215,16 @@
   }
 }
 
+@media (max-width: 321px) and (orientation: portrait) {
+  .userName h3 {
+    padding: 10px;
+    text-align: center;
+  }
+  .quizContainer .quizQuestion h3 {
+    font-size: 1rem;
+  }
+}
+
 @media (max-width: 376px) and (orientation: portrait) {
   .App {
     width: 100%;
