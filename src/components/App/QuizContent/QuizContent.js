@@ -13,6 +13,8 @@ const QuizContent = (props) => {
     const correctAnswer = questionState?.correctAnswer;
     const isLastQuestion = (items.length - 1) === questionIndex;
     const finishQuiz = questionIndex > (items.length - 1)
+    const isFinished = (questionIndex > (items.length -1 )) && (items.length > 0)
+
 
     useEffect(() => {
         setDirty(false)
@@ -58,7 +60,7 @@ const QuizContent = (props) => {
 
     if (error) {
         return <div><p>Error</p></div>
-    } else if (finishQuiz) {
+    } else if (isFinished) {
         return (
             <>
             <FinalResult score={props.score} userName={props.userName} />
