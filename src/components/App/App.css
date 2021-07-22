@@ -251,6 +251,13 @@
   }
 }
 
+@media (min-width: 950px) and (max-width: 1322px) {
+  .quizContainer .quizAnswers button {
+    margin-left: 121px;
+    margin-right: 121px;
+  }
+}
+
 @media (max-width: 667px) and (orientation: landscape) {
   .quizContainer .quizAnswers button {
     margin-left: 20px;
