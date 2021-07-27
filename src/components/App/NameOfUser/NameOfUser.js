@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
 const NameOfUser = (props) => {
     const [value, setValue] = useState('');
+
+    let history = useHistory();
 
     const handleInputValue = (e) => {
         setValue(e.target.value.trim())
@@ -20,6 +23,7 @@ const NameOfUser = (props) => {
                     } else {
                         props.onStart();
                         props.onCheck(value);
+                        history.push('/content')
                     }
                 }}>START</button>
         </div>

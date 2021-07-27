@@ -4,7 +4,7 @@ import FinalResult from './FinalResult/FinalResult';
 
 const QuizContent = (props) => {
     const [error, setError] = useState(null);
-    const [items, setItems] = useState([]);
+    const [items, setItems] = useState([false]);
     const [questionIndex, setQuestionIndex] = useState(0)
     const [dirty, setDirty] = useState(false)
 
@@ -13,7 +13,7 @@ const QuizContent = (props) => {
     const correctAnswer = questionState?.correctAnswer;
     const isLastQuestion = (items.length - 1) === questionIndex;
     const finishQuiz = questionIndex > (items.length - 1)
-    const isFinished = (questionIndex > (items.length -1 )) && (items.length > 0)
+    const isFinished = (questionIndex > (items.length - 1)) && items.length > 0;
 
 
     useEffect(() => {

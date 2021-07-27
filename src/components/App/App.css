@@ -8,12 +8,9 @@
 }
 
 .App {
-  /* position: relative; */
-  /* margin: 5% auto 0%; */
   width: 100%;
   height: 100vh;
   background: linear-gradient(45deg, rgba(50, 47, 97, 1) 0%, rgba(56, 73, 108, 1) 10%, rgba(0, 212, 255, 1) 100%);
-  /* border-radius: 5px; */
 }
 
 .LogoWrapper {
@@ -177,9 +174,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: -50px;
   width: 100%;
-  height: 80%;
+  height: 60%;
   background-color: transparent;
   line-height: 50px;
 }
@@ -198,6 +194,128 @@
 
 .counterResult span {
   font-size: 1.2em;
+}
+
+.signIn {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 300px;
+  height: 400px;
+  margin: 50px auto;
+  background-color: white;
+  border-radius: 8px;
+}
+
+.signIn form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+}
+
+.signIn form input {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: none;
+  border-bottom: 1px solid black;
+  width: 100%;
+  height: 20px;
+}
+
+.signIn form p {
+  width: 100%;
+  text-align: left;
+  font-size: .8rem;
+}
+
+.signIn button {
+  margin-left: 10px;
+  margin-right: 10px;
+  padding: 10px;
+  background-color: #1C90B7;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 2px;
+  width: 150px;
+  font-size: 1rem;
+}
+
+.signIn button a {
+  color: white;
+  text-decoration: none;
+}
+
+.accountMessage {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+}
+
+.accountMessage p:nth-child(1) {
+  animation: shake 2s;
+  animation-iteration-count: 1
+}
+
+.accountMessage span {
+  color: blue;
+  cursor: pointer;
+}
+
+.accountMessage span:hover {
+  text-decoration: underline;
+}
+
+.signUp {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 300px;
+  height: 400px;
+  margin: 50px auto;
+  background-color: white;
+  border-radius: 8px;
+}
+
+.signUp form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+}
+
+.signUp form input {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: none;
+  border-bottom: 1px solid black;
+  width: 100%;
+  height: 20px;
+}
+
+.signUp p {
+  animation: shake 2s;
+  animation-iteration-count: 1
+}
+
+.signUp button {
+  margin-left: 10px;
+  margin-right: 10px;
+  padding: 10px;
+  background-color: #1C90B7;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 2px;
+  width: 150px;
+  font-size: 1rem;
 }
 
 @media (max-width: 281px) and (orientation: portrait) {
@@ -276,5 +394,23 @@
 
   .quizContainer .quizQuestion h3 {
     font-size: 1rem;
+  }
+}
+
+@keyframes shake {
+  0% {
+    transform: rotate(-8deg) translateX(45px);
+  }
+  20% {
+    transform: rotate(8deg);
+  }
+  40% {
+    transform: rotate(-8deg);
+  }
+  60% {
+    transform: rotate(8deg);
+  }
+  80% {
+    transform: rotate(-8deg);
   }
 }
