@@ -5,28 +5,35 @@ import NameOfUser from './NameOfUser/NameOfUser';
 import Logo from "../../images/logozawka.png"
 import QuizContent from './QuizContent/QuizContent';
 import CounterResult from './CounterResult/CounterResult';
-import SignIn from './Authenticate/SignIn';
-import Register from './Authenticate/Register';
+// eslint-disable-next-line no-unused-vars
+import Firebase from './Authenticate/Firebase'
+import Facebook from './Authenticate/Facebook';
+import FinalResult from './QuizContent/FinalResult/FinalResult';
+import DataFromFirestore from './Authenticate/DataFromFirestore';
 
 
 function App() {
-  const [userName, setUserName] = useState()
   const [incrementScore, setIncrementScore] = useState(0)
-  const [checkUserName, setCheckUserName] = useState()
-
-  const handleUserName = () => {
-    setUserName(true)
-  }
-
-  const sendUserName = (value) => {
-    setCheckUserName(value)
-    console.log(value)
-    console.log(checkUserName)
-  }
+  const [userName, setUserName] = useState('')
+  const [newUser, setNewUser] = useState();
+  const [email, setEmail] = useState();
 
   const selectAnswer = () => {
     setIncrementScore(incrementScore + 1)
     console.log(incrementScore)
+  }
+
+  const nameOfUser = (user) => {
+    setUserName(user)
+  }
+
+  const ifNewUser = (user) => {
+    setNewUser(user)
+    console.log(user);
+  }
+
+  const userEmail = (value) => {
+    setEmail(value)
   }
 
 
@@ -35,23 +42,26 @@ function App() {
       <div className="LogoWrapper">
         <div className="CounterContainer">
           <h1>ZawkaQuiz</h1>
-          {userName ? <CounterResult score={incrementScore} /> : ''}
+          {/* {<CounterResult score={incrementScore} />} */}
         </div>
             <img src={Logo} alt="Logo" />
       </div>
       <Router>
         <Switch>
           <Route exact path="/">
-          <SignIn />
-          </Route>
-          <Route path="/register">
-          <Register />
+            <Facebook onClick={nameOfUser} onChange={ifNewUser} onGo={userEmail} />
           </Route>
           <Route path="/username">
-          <NameOfUser onStart={handleUserName} onCheck={sendUserName} />
+            <NameOfUser userName={userName} />
           </Route>
           <Route path="/content">
-          <QuizContent onScore={selectAnswer} score={incrementScore} userName={checkUserName} />
+            <QuizContent onScore={selectAnswer} score={incrementScore} userName={userName} />
+          </Route>
+          <Route path="/results">
+            <FinalResult />
+          </Route>
+          <Route path="/dataresults">
+            <DataFromFirestore newUser={newUser} userName={userName} email={email} score={incrementScore} />
           </Route>
         </Switch>
       </Router>

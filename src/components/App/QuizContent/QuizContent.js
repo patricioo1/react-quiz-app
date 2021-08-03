@@ -4,7 +4,7 @@ import FinalResult from './FinalResult/FinalResult';
 
 const QuizContent = (props) => {
     const [error, setError] = useState(null);
-    const [items, setItems] = useState([false]);
+    const [items, setItems] = useState(false);
     const [questionIndex, setQuestionIndex] = useState(0)
     const [dirty, setDirty] = useState(false)
 
