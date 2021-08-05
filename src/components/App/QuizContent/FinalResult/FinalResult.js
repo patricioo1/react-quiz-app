@@ -4,7 +4,6 @@ import { useHistory } from 'react-router-dom';
 const FinalResult = (props) => {
     let history = useHistory();
 
-
     return (
         <div className='finalResult'>
             <p>{`Gratulacje ${props.userName}`}</p>

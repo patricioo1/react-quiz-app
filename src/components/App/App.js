@@ -4,7 +4,7 @@ import './App.css';
 import NameOfUser from './NameOfUser/NameOfUser';
 import Logo from "../../images/logozawka.png"
 import QuizContent from './QuizContent/QuizContent';
-import CounterResult from './CounterResult/CounterResult';
+// import CounterResult from './CounterResult/CounterResult';
 // eslint-disable-next-line no-unused-vars
 import Firebase from './Authenticate/Firebase'
 import Facebook from './Authenticate/Facebook';
@@ -61,7 +61,7 @@ function App() {
             <FinalResult />
           </Route>
           <Route path="/dataresults">
-            <DataFromFirestore newUser={newUser} userName={userName} email={email} score={incrementScore} />
+            <DataFromFirestore newUser={newUser} score={incrementScore} />
           </Route>
         </Switch>
       </Router>
