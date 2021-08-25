@@ -1,12 +1,12 @@
 import React from 'react';
 
-const CounterResult = (props) => {
+const CounterResult = ({score}) => {
 
 
     return (
         <div className="counterResult">
             <span>Punkty: </span>
-            <span>{props.score}</span>
+            <span>{score}</span>
         </div>
     )
 }

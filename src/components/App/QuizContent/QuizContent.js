@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import FinishButton from './FinishButton/FinishButton';
 import FinalResult from './FinalResult/FinalResult';
 
-const QuizContent = (props) => {
+const QuizContent = ({onScore, score, userName}) => {
     const [error, setError] = useState(null);
     const [items, setItems] = useState(false);
     const [questionIndex, setQuestionIndex] = useState(0)
@@ -25,7 +25,7 @@ const QuizContent = (props) => {
         setDirty(false)
         if (clickUser === correctAnswer && !dirty) {
             console.log(clickUser + ' to prawidłowa odpowiedź')
-            props.onScore()
+            onScore()
             setDirty(true)
         } else {
             console.log('Prawidłowa odpowiedź to ' + correctAnswer)
@@ -63,7 +63,7 @@ const QuizContent = (props) => {
     } else if (isFinished) {
         return (
             <>
-            <FinalResult score={props.score} userName={props.userName} />
+            <FinalResult score={score} userName={userName} />
             </>
         )}
         else {

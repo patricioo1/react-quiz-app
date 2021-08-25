@@ -1,13 +1,13 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 
-const FinalResult = (props) => {
+const FinalResult = ({userName, score}) => {
     let history = useHistory();
 
     return (
         <div className='finalResult'>
-            <p>{`Gratulacje ${props.userName}`}</p>
-            <p>{`Udało Ci się ukończyć quiz z wynikiem: ${props.score} pkt`}</p>
+            <p>{`Gratulacje ${userName}`}</p>
+            <p>{`Udało Ci się ukończyć quiz z wynikiem: ${score} pkt`}</p>
             <button onClick={() => history.push('/dataresults')}>Tabela wyników</button>
         </div>
     )

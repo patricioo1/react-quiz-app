@@ -3,7 +3,7 @@ import firebase from 'firebase';
 import { useHistory } from 'react-router-dom';
 import db from './Firebase';
 
-const Facebook = (props) => {
+const Facebook = ({onClick, onChange}) => {
 
   const facebookProvider = new firebase.auth.FacebookAuthProvider();
   let history = useHistory();
@@ -13,14 +13,17 @@ const Facebook = (props) => {
     .then(result => {
       console.log(result);
       const firstName = result.additionalUserInfo.profile.first_name;
-      props.onClick(firstName)
+      onClick(firstName)
       const email = result.additionalUserInfo.profile.email;
-      props.onGo(email)
       const id = result.additionalUserInfo.profile.id;
       const newUser = result.additionalUserInfo.isNewUser;
-      props.onChange(newUser)
-      dataFirestore(firstName, email, id);
-      history.push('/username')
+      if (newUser) {
+        onChange(newUser)
+        dataFirestore(firstName, email, id);
+        history.push('/username')
+      } else {
+        history.push('/username')
+      }
     }).catch(error => {
       console.log(error.code);
       console.log(error.message);

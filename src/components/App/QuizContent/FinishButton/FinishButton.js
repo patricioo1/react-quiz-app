@@ -1,11 +1,11 @@
 import React from 'react'
 
-const FinishButton = (props) => {
+const FinishButton = ({onClick}) => {
 
 
     return (
         <div>
-            <button className='finishButton' onClick={() => props.onClick()}>ZAKOŃCZ</button>
+            <button className='finishButton' onClick={() => onClick()}>ZAKOŃCZ</button>
         </div>
     )
 }

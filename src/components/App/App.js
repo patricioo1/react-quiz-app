@@ -16,7 +16,6 @@ function App() {
   const [incrementScore, setIncrementScore] = useState(0)
   const [userName, setUserName] = useState('')
   const [newUser, setNewUser] = useState();
-  const [email, setEmail] = useState();
 
   const selectAnswer = () => {
     setIncrementScore(incrementScore + 1)
@@ -32,10 +31,6 @@ function App() {
     console.log(user);
   }
 
-  const userEmail = (value) => {
-    setEmail(value)
-  }
-
 
   return (
     <div className="App">
@@ -49,7 +44,7 @@ function App() {
       <Router>
         <Switch>
           <Route exact path="/">
-            <Facebook onClick={nameOfUser} onChange={ifNewUser} onGo={userEmail} />
+            <Facebook onClick={nameOfUser} onChange={ifNewUser} />
           </Route>
           <Route path="/username">
             <NameOfUser userName={userName} />
