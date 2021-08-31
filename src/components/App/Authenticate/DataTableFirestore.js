@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 // import { auth } from './Firebase'
 import db from './Firebase';
+import Logo from '../../../images/logozawka.png'
 
-const DataFromFirestore = ({score, newUser}) => {
-    // const [userIdFromFirestore, setUserFromFirestore] = useState();
+const DataTableFirestore = () => {
     const [loading, setLoading] = useState(true);
     const [users, setUsers] = useState([]);
 
@@ -13,8 +13,6 @@ const DataFromFirestore = ({score, newUser}) => {
             snapshot.forEach(doc => {
                 getUsersFromFirebase.push({...doc.data(),
                 key: doc.id})
-            // const userIdFromDataBase = doc._delegate._firestore._credentials.currentUser.uid;
-            // setUserFromFirestore(userIdFromDataBase)
         })
         setUsers(getUsersFromFirebase)
         setLoading(false);
@@ -23,22 +21,33 @@ const DataFromFirestore = ({score, newUser}) => {
     }, [])
 
     if (loading) {
-        return <h1>Ładowanie..</h1>
+        return (
+            <div className="resultsTable">
+                <h1>Ładowanie...</h1>
+            </div>
+        )
     }
         return (
             <div className='resultsTable'>
+                <div className="resultsTable-hero">
+                <h2>Zawisza <span>Pajęczno</span></h2>
+                <img src={Logo} alt="Logo" />
+                </div>
                 <h2>Tabela wyników</h2>
                 <div className='resultsTable-description'>
                     <p>Imię</p>
                     <p>Email</p>
-                    <p>Uzyskane punkty</p>
+                    <p>Punkty</p>
                 </div>
-                {users.map((user, id) => {
+                {users.sort((a, b) => {
+                    console.log(a.score);
+                    return parseInt(a.score) < parseInt(b.score) ? 1 : -1;
+                }).map((user, id) => {
                     return (
                         <div key={id} className="resultsTable-data">
                             <p>{user.firstname}</p>
                             <p>{user.email}</p>
-                            <p>{score}</p>
+                            <p>{user.score}</p>
                         </div>
                         )
                     })
@@ -47,4 +56,4 @@ const DataFromFirestore = ({score, newUser}) => {
         );
 };
 
-export default DataFromFirestore;
+export default DataTableFirestore;

@@ -1,5 +1,7 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
+import Logo from '../../../images/logozawka.png'
+import Zawisza from '../../../images/zawisza1951.jpg'
 
 const NameOfUser = ({userName}) => {
 
@@ -7,9 +9,20 @@ const NameOfUser = ({userName}) => {
 
     return (
         <div className="userName">
-            <h3>{`Witaj ${userName}!`}</h3>
-            <button className="startButton"
-                onClick={(e) => {history.push('/content')}}>START</button>
+            <div className="userName-description">
+                <img src={Logo} alt="Logo" />
+                <h3>Witaj, <span>{`${userName}!`}</span></h3>
+                <p>Życzę Ci jak najlepszego wyniku i chciałbym przedstawić Ci zasady quizu:</p>
+                <p>&bull; możesz grać tyle razy ile zechcesz, ale musisz wiedzieć, że do tabeli wyników liczy się tylko i wyłącznie Twój pierwszy rezultat</p>
+                <p>&bull; za udzielenie prawidłowej odpowiedzi otrzymujesz 1 punkt</p>
+                <p>&bull; kiedy klikniesz przycisk "start", zacznie lecieć czas, który będzie dodany do tabeli wyników jako twój indywidualny wynik</p>
+                <p>&bull; jeśli wyjdziesz z quizu, niestety nie będziesz mógł już poprawić swojego wyniku</p>
+                <button className="startButton"
+                    onClick={() => {history.push('/content')}}>START</button>
+            </div>
+            <div className="userName-image">
+            <img src={Zawisza} alt="Zdjęcie Zawiszy 1951 rok" />
+            </div>
         </div>
     );
 }

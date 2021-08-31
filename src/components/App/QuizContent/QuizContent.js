@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import FinishButton from './FinishButton/FinishButton';
 import FinalResult from './FinalResult/FinalResult';
+import Logo from '../../../images/logozawka.png'
 
-const QuizContent = ({onScore, score, userName}) => {
+const QuizContent = ({onScore, score, userName, userUid, newUser}) => {
     const [error, setError] = useState(null);
     const [items, setItems] = useState(false);
     const [questionIndex, setQuestionIndex] = useState(0)
@@ -19,6 +20,13 @@ const QuizContent = ({onScore, score, userName}) => {
     useEffect(() => {
         setDirty(false)
     }, [questionIndex])
+
+    // eslint-disable-next-line no-restricted-globals
+    history.pushState(null, document.title, location.href);
+    window.addEventListener('popstate', () => {
+        // eslint-disable-next-line no-restricted-globals
+        history.pushState(null, document.title, location.href);
+    });
 
     const selectCorrectAnswer = (e) => {
         const clickUser = e.target.value;
@@ -59,7 +67,7 @@ const QuizContent = ({onScore, score, userName}) => {
     }, [])
 
     if (error) {
-        return <div><p>Error</p></div>
+        return <div><p>Wystąpił błąd</p></div>
     } else if (isFinished) {
         return (
             <>
@@ -70,6 +78,7 @@ const QuizContent = ({onScore, score, userName}) => {
         return (
             <div className={`quizContainer ${finishQuiz ? 'hiddenClass' : ''}`}>
                 <div className="quizQuestion">
+                    <img src={Logo} alt="Logo" />
                     <h3>{questionState?.question}</h3>
                 </div>
                 <div className="quizAnswers">
@@ -81,7 +90,7 @@ const QuizContent = ({onScore, score, userName}) => {
                     })}
                 </div>
                 {dirty && !isLastQuestion ? <button className='nextButton' onClick={() => {handleAnswerClick()}}>NASTĘPNE</button> : ''}
-                {isLastQuestion && dirty ? <FinishButton onClick={() => handleAnswerClick()} /> : ''}
+                {isLastQuestion && dirty ? <FinishButton newUser={newUser} score={score} userUid={userUid} onClick={() => handleAnswerClick()} /> : ''}
             </div>
         )
     }

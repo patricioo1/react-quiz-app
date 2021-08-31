@@ -2,20 +2,18 @@ import React, { useState } from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import './App.css';
 import NameOfUser from './NameOfUser/NameOfUser';
-import Logo from "../../images/logozawka.png"
 import QuizContent from './QuizContent/QuizContent';
-// import CounterResult from './CounterResult/CounterResult';
 // eslint-disable-next-line no-unused-vars
-import Firebase from './Authenticate/Firebase'
-import Facebook from './Authenticate/Facebook';
 import FinalResult from './QuizContent/FinalResult/FinalResult';
-import DataFromFirestore from './Authenticate/DataFromFirestore';
+import DataTableFirestore from './Authenticate/DataTableFirestore';
+import LoginPanel from './Authenticate/LoginPanel';
 
 
 function App() {
   const [incrementScore, setIncrementScore] = useState(0)
   const [userName, setUserName] = useState('')
   const [newUser, setNewUser] = useState();
+  const [userUid, setUserUid] = useState();
 
   const selectAnswer = () => {
     setIncrementScore(incrementScore + 1)
@@ -31,32 +29,32 @@ function App() {
     console.log(user);
   }
 
+  const getUserUid = (uid) => {
+    setUserUid(uid)
+  }
 
   return (
     <div className="App">
-      <div className="LogoWrapper">
-        <div className="CounterContainer">
-          <h1>ZawkaQuiz</h1>
-          {/* {<CounterResult score={incrementScore} />} */}
-        </div>
-            <img src={Logo} alt="Logo" />
+      <div className="secondaryColorWhite">
+        <p>70 lat</p>
+        <p>Zawisza</p>
       </div>
       <Router>
         <Switch>
           <Route exact path="/">
-            <Facebook onClick={nameOfUser} onChange={ifNewUser} />
+            <LoginPanel onClick={nameOfUser} onChange={ifNewUser} onCheck={getUserUid} />
           </Route>
           <Route path="/username">
             <NameOfUser userName={userName} />
           </Route>
           <Route path="/content">
-            <QuizContent onScore={selectAnswer} score={incrementScore} userName={userName} />
+            <QuizContent onScore={selectAnswer} score={incrementScore} userName={userName} userUid={userUid} newUser={newUser} />
           </Route>
           <Route path="/results">
             <FinalResult />
           </Route>
           <Route path="/dataresults">
-            <DataFromFirestore newUser={newUser} score={incrementScore} />
+            <DataTableFirestore newUser={newUser} score={incrementScore} />
           </Route>
         </Switch>
       </Router>

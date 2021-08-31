@@ -1,12 +1,20 @@
 import React from 'react'
+import db from '../../Authenticate/Firebase'
 
-const FinishButton = ({onClick}) => {
+const FinishButton = ({onClick, userUid, score, newUser}) => {
 
+    const updateDataFirestore = () => {
+        if (newUser) {
+            db.collection('users').doc(userUid).update({
+                score: score
+            });
+        }
+    }
 
     return (
-        <div>
-            <button className='finishButton' onClick={() => onClick()}>ZAKOŃCZ</button>
-        </div>
+        <>
+            <button className='finishButton' onClick={() => {onClick(); updateDataFirestore()}}>ZAKOŃCZ</button>
+        </>
     )
 }
 
