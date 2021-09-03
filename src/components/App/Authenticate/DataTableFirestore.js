@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-// import { auth } from './Firebase'
 import db from './Firebase';
 import Logo from '../../../images/logozawka.png'
 
@@ -40,7 +39,6 @@ const DataTableFirestore = () => {
                     <p>Punkty</p>
                 </div>
                 {users.sort((a, b) => {
-                    console.log(a.score);
                     return parseInt(a.score) < parseInt(b.score) ? 1 : -1;
                 }).map((user, id) => {
                     return (

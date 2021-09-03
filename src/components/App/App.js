@@ -35,10 +35,7 @@ function App() {
 
   return (
     <div className="App">
-      <div className="secondaryColorWhite">
-        <p>70 lat</p>
-        <p>Zawisza</p>
-      </div>
+      <div className="secondaryColorWhite"></div>
       <Router>
         <Switch>
           <Route exact path="/">
