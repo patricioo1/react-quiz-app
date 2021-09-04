@@ -11,12 +11,12 @@
 {
     "question": "Kto był najlepszym asystującym sezonu 2020/2021?",
     "answers": [
-        "Smolarz",
-        "Wilkoszewski",
-        "Romański",
-        "Kaczmarek"
+        " Patryk Smolarz",
+        "Bartosz Wilkoszewski",
+        "Tobiasz Romański",
+        "Łukasz Kaczmarek"
     ],
-    "correctAnswer": "Wilkoszewski"
+    "correctAnswer": "Bartosz Wilkoszewski"
 },
 {
     "question": "Z jakim trenerem Zawisza Pajęczno wywalczył historyczny awans do 4 ligi?",
