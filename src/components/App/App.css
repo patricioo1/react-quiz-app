@@ -151,9 +151,8 @@
   cursor: pointer;
   color: #fff;
   border: none;
-  margin-top: 10px;
   margin: 0 auto;
-  margin-top: 10px;
+  margin-top: 50px;
 }
 
 .userName-description p:nth-of-type(1) {
@@ -815,6 +814,7 @@
     width: 165px;
     height: 40px;
     font-size: 11px;
+    margin-top: 10px;
   }
 }
 
