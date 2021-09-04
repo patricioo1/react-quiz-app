@@ -1,110 +1,200 @@
 [{
-    "question": "Który zawodnik strzelił najwięcej goli w historii Ligi Mistrzów?",
+    "question": "W którym sezonie rozgrywkowym Zawisza wywalczył historyczny awans do 4 ligi?",
     "answers": [
-        "Lionel Messi",
-        "Robert Lewandowski",
-        "Cristiano Ronaldo",
-        "Karim Benzema"
+        "2007/08",
+        "2008/09",
+        "2006/07",
+        "2009/10"
     ],
-    "correctAnswer": "Cristiano Ronaldo"
+    "correctAnswer": "2007/08"
 },
 {
-    "question": "Która drużyna jako pierwsza wygrała Puchar Ligi Mistrzów?",
+    "question": "Kto był najlepszym asystującym sezonu 2020/2021?",
     "answers": [
-        "Bayern Monachium",
-        "FC Barcelona",
-        "Real Madryt",
-        "Legia Warszawa"
+        "Smolarz",
+        "Wilkoszewski",
+        "Romański",
+        "Kaczmarek"
     ],
-    "correctAnswer": "Real Madryt"
+    "correctAnswer": "Wilkoszewski"
 },
 {
-    "question": "Jakim wynikiem zakończył się mecz w fazie grupowej Ligi Mistrzów pomiędzy Legią Warszawa a Borussią Dortmund, rozegrany 22 listopada 2016 roku?",
+    "question": "Z jakim trenerem Zawisza Pajęczno wywalczył historyczny awans do 4 ligi?",
     "answers": [
-        "8:4",
-        "3:2",
-        "5:5",
-        "10:6"
+        "Tomasz Jaworski",
+        "Jacek Berensztajn",
+        "Grzegorz Bodnar",
+        "Wiesław Mak"
     ],
-    "correctAnswer": "8:4"
+    "correctAnswer": "Wiesław Mak"
 },
 {
-    "question": "W którym roku został rozegrany finał Ligi Mistrzów FC Liverpool vs AC Milan?",
-    "answers": [
-        "2004",
-        "2003",
-        "2005",
-        "2006"
-    ],
-    "correctAnswer": "2005"
-},
-{
-    "question": "Z jakim trenerem Chelsea Londyn zdobyła Ligę Mistrzów w 2012 roku?",
-    "answers": [
-        "Andre Villas-Boas",
-        "Carlo Ancelotti",
-        "Rafael Benitez",
-        "Roberto Di Matteo"
-    ],
-    "correctAnswer": "Roberto Di Matteo"
-},
-{
-    "question": "Ilu polskich piłkarzy wygrało Ligę Mistrzów?",
+    "question": "Ilu z obecnie grających zawodników wywalczyło historyczny awans do 4 ligi?",
     "answers": [
         "2",
         "3",
-        "4",
-        "5"
+        "1",
+        "0"
     ],
-    "correctAnswer": "5"
+    "correctAnswer": "1"
 },
 {
-    "question": "Jakim wynikiem zakończył się finał Ligi Mistrzów w 2013 roku pomiędzy Bayernem Monachium a Borussią Dortmund, w którym brało udział trzech Polaków?",
+    "question": "Z kim Zawisza Pajęczno zagrała swój pierwszy ligowy mecz po reaktywacji klubu?",
     "answers": [
-        "2:0",
+        "WKS Wieluń",
+        "GKS Czastary",
+        "LZS Krzyworzeka",
+        "Warta Osjaków"
+    ],
+    "correctAnswer": "LZS Krzyworzeka"
+},
+{
+    "question": "Jaki padł wynik w pierwszym ligowym meczu po reaktywacji klubu?",
+    "answers": [
+        "2:3",
+        "1:4",
+        "0:2",
+        "1:5"
+    ],
+    "correctAnswer": "1:5"
+},
+{
+    "question": "Ile czystych kont w sezonie 2020/21 zachował bramkarz Patryk Smolarz?",
+    "answers": [
+        "8",
+        "9",
+        "5",
+        "7"
+    ],
+    "correctAnswer": "7"
+},
+{
+    "question": "Kto jest pierwszym kapitanem drużyny?",
+    "answers": [
+        "Mateusz Namunaua",
+        "Bartosz Wilkoszewski",
+        "Patryk Smolarz",
+        "Tobiasz Romański"
+    ],
+    "correctAnswer": "Tobiasz Romański"
+},
+{
+    "question": "Jak nazywa się aktualny prezes klubu?",
+    "answers": [
+        "Józef Wesołowski",
+        "Stanisław Staroń",
+        "Rafał Dziadak",
+        "Żaden z nich"
+    ],
+    "correctAnswer": "Stanisław Staroń"
+},
+{
+    "question": "Na którym miejscu Zawisza ukończył sezon 2020/2021?",
+    "answers": [
+        "Czwartym",
+        "Trzecim",
+        "Pierwszym",
+        "Drugim"
+    ],
+    "correctAnswer": "Drugim"
+},
+{
+    "question": "Ilu zawodników w kadrze sezonu 2021/2022 jest spoza gminy Pajęczno?",
+    "answers": [
+        "1",
+        "2",
+        "3",
+        "4"
+    ],
+    "correctAnswer": "4"
+},
+{
+    "question": "Kto jest pierwszym kierownikiem drużyny Zawisza Pajęczno?",
+    "answers": [
+        "Rafał Dziadak",
+        "Łukasz Kaczmarek",
+        "Dawid Kosmowski",
+        "Stanisław Staroń"
+    ],
+    "correctAnswer": "Rafał Dziadak"
+},
+{
+    "question": "Kim jest zawodnik nazywany przez wszystkich 'Sone'?",
+    "answers": [
+        "Mateusz Namunaua",
+        "Tobiasz Romański",
+        "Patryk Trawczyński",
+        "Stanisław Grabarczyk"
+    ],
+    "correctAnswer": "Patryk Trawczyński"
+},
+{
+    "question": "Na jakiej pozycji występuje przeważnie Mateusz Namunaua?",
+    "answers": [
+        "Środkowy obrońca",
+        "Napastnik",
+        "Skrzydłowy",
+        "Defensywny pomocnik"
+    ],
+    "correctAnswer": "Defensywny pomocnik"
+},
+{
+    "question": "Jakim najwyższym wynikiem zakończył się mecz w sezonie 2020/2021 dla Zawiszy Pajęczno?",
+    "answers": [
+        "6:0",
+        "1:7",
+        "9:1",
+        "5:2"
+    ],
+    "correctAnswer": "9:1"
+},
+{
+    "question": "Jaki zawodnik kryje się pod pseudonimem 'Pysio'?",
+    "answers": [
+        "Adam Zdunek",
+        "Sebastian Drab",
+        "Błażej Posmyk",
+        "Michał Bęben"
+    ],
+    "correctAnswer": "Błażej Posmyk"
+},
+{
+    "question": "Z iloma punktami Zawisza Pajęczno ukończył sezon 2020/2021?",
+    "answers": [
+        "44",
+        "64",
+        "59",
+        "60"
+    ],
+    "correctAnswer": "60"
+},
+{
+    "question": "Przez ile kolejek z rzędu Zawisza Pajęczno był niepokonany w sezonie 2020/2021?",
+    "answers": [
+        "12",
+        "13",
+        "14",
+        "11"
+    ],
+    "correctAnswer": "12"
+},
+{
+    "question": "Najwyższa porażka, która spotkała Zawiszę Pajęczno w sezonie 2019/2020 to:",
+    "answers": [
+        "2:4",
+        "2:5",
         "2:1",
-        "3:2",
         "1:0"
     ],
-    "correctAnswer": "2:1"
+    "correctAnswer": "2:5"
 },
 {
-    "question": "Który pierwszy polski bramkarz wywalczył Puchar Ligi Mistrzów?",
+    "question": "Ilu nowych zawodników Zawisza pozyskał w letnim okienku 2021/2022?",
     "answers": [
-        "Tomasz Kuszczak",
-        "Józef Młynarczyk",
-        "Artur Boruc",
-        "Jerzy Dudek"
+        "0",
+        "2",
+        "4",
+        "1"
     ],
-    "correctAnswer": "Józef Młynarczyk"
-},
-{
-    "question": "Która polska drużyna wygrała w III rundzie kwalifikacyjnej do Ligi Mistrzów z FC Barceloną w 2008 roku?",
-    "answers": [
-        "Wisła Kraków",
-        "Legia Warszawa",
-        "Lech Poznań",
-        "Piast Gliwice"
-    ],
-    "correctAnswer": "Wisła Kraków"
-},
-{
-    "question": "Który klub przegrał najwięcej razy finałowy mecz Ligi Mistrzów?",
-    "answers": [
-        "Manchester United",
-        "Juventus Turyn",
-        "Borussia Dortmund",
-        "Atletico Madryt"
-    ],
-    "correctAnswer": "Juventus Turyn"
-},
-{
-    "question": "Który polski bramkarz wygrał Ligę Mistrzów z Manchesterem United?",
-    "answers": [
-        "Tomasz Kuszczak",
-        "Łukasz Załuska",
-        "Wojciech Szczęsny",
-        "Łukasz Fabiański"
-    ],
-    "correctAnswer": "Tomasz Kuszczak"
+    "correctAnswer": "1"
 }]

@@ -3,7 +3,7 @@ import FinishButton from './FinishButton/FinishButton';
 import FinalResult from './FinalResult/FinalResult';
 import Logo from '../../../images/logozawka.png'
 
-const QuizContent = ({onScore, score, userName, userUid, newUser}) => {
+const QuizContent = ({onScore, score, userName, userUid, newUser, onStart}) => {
     const [error, setError] = useState(null);
     const [items, setItems] = useState(false);
     const [questionIndex, setQuestionIndex] = useState(0)
@@ -15,7 +15,6 @@ const QuizContent = ({onScore, score, userName, userUid, newUser}) => {
     const isLastQuestion = (items.length - 1) === questionIndex;
     const finishQuiz = questionIndex > (items.length - 1)
     const isFinished = (questionIndex > (items.length - 1)) && items.length > 0;
-
 
     useEffect(() => {
         setDirty(false)

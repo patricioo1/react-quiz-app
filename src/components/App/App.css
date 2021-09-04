@@ -152,7 +152,8 @@
   color: #fff;
   border: none;
   margin-top: 10px;
-  margin: auto;
+  margin: 0 auto;
+  margin-top: 50px;
 }
 
 .userName-description p:nth-of-type(1) {
@@ -496,6 +497,19 @@
   color: #2D6BE3;
 }
 
+.resultsTable button {
+    width: 200px;
+    height: 50px;
+    border-radius: 5px;
+    border: none;
+    background-color: #2D6BE3;
+    font-size: 15px;
+    color: #fff;
+    cursor: pointer;
+    margin: 20px;
+    padding: 10px;
+}
+
 
 /* LoginPanel */
 
@@ -515,6 +529,7 @@
   .facebookLogin-description {
     width: 100%;
     padding-left: 0px;
+    z-index: 1;
   }
 
   .facebookLogin-description h1 {
@@ -633,7 +648,7 @@
     }
 
     .facebookLogin-description img {
-    width: 30%;
+    width: 20%;
     }
 
     .facebookLogin-description button {
@@ -785,6 +800,7 @@
     font-size: .7em;
     padding-left: 15px;
     padding-right: 15px;
+    margin-bottom: 25px;
   }
 
   .userName-description img {
@@ -846,17 +862,19 @@
 
 @media (min-width: 568px) and (max-width: 1367px) and (orientation: landscape) {
   .userName {
+    display: flex;
+    justify-content: center;
     width: 90%;
     height: 90%;
   }
 
   .userName-description {
-    width: 100%;
+    width: 85%;
   }
 
   .userName-description h3 {
     font-size: 1em;
-    margin-bottom: 0px;
+    margin-bottom: 10px;
   }
 
   .userName-description p {
@@ -874,6 +892,7 @@
     width: 130px;
     height: 25px;
     font-size: 10px;
+    margin-top: 30px;
   }
 
   .userName-image {
@@ -1011,7 +1030,7 @@
   }
 
   .quizContainer .quizQuestion h3 {
-    font-size: .7em;
+    font-size: .8em;
   }
 
   .quizContainer .quizQuestion img {
@@ -1210,8 +1229,9 @@
   .finalResult p:nth-of-type(3) {
     font-size: 1em;
     text-align: center;
-    padding-right: 15px;
-    padding-left: 15px;
+    margin-top: 20px;
+    padding-right: 25px;
+    padding-left: 25px;
   }
 
   .finalResult button {
@@ -1286,6 +1306,7 @@
 
   .finalResult img {
     margin-bottom: 0px;
+    margin-top: 2%;
   }
 
   .finalResult p {
@@ -1301,12 +1322,6 @@
     height: 35px;
     margin-top: 15px;
     font-size: .7em;
-  }
-}
-
-@media (min-width: 667px) and (max-width: 1367px) and (orientation: landscape) {
-  .finalResult img {
-    width: 25%;
   }
 }
 
@@ -1371,10 +1386,14 @@
     width: 20%;
   }
 
+  .resultsTable h2 {
+    font-size: 1em;
+  }
+
   .resultsTable-description {
     width: 100%;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
     margin-bottom: 20px;
   }
 
@@ -1395,6 +1414,26 @@
     align-items: center;
     width: 33.33%;
     font-size: .7em;
+  }
+
+  .resultsTable-data p:nth-of-type(1) {
+    padding-left: 5px;
+  }
+
+  .resultsTable-data p:nth-of-type(3) {
+    padding-right: 5px;
+  }
+
+  .resultsTable button {
+    width: 165px;
+    height: 40px;
+    font-size: 11px;
+  }
+}
+
+@media (min-width: 411px) and (orientation: portrait) {
+  .resultsTable button {
+    font-size: 12px;
   }
 }
 
@@ -1432,6 +1471,12 @@
 
   .resultsTable-data p {
     font-size: 1em;
+  }
+
+  .resultsTable button {
+    width: 200px;
+    height: 50px;
+    font-size: 13px;
   }
 }
 
@@ -1471,6 +1516,14 @@
 
   .resultsTable-data p {
     font-size: 1em;
+  }
+}
+
+@media (min-width: 1024) and (orientation: portrait) {
+  .resultsTable button {
+    width: 225px;
+    height: 50px;
+    font-size: 15px;
   }
 }
 
@@ -1514,6 +1567,12 @@
 
   .resultsTable-data p {
     font-size: .8em;
+  }
+
+  .resultsTable button {
+    width: 165px;
+    height: 35px;
+    font-size: 11px;
   }
 }
 

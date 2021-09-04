@@ -1,10 +1,17 @@
 import React, { useEffect, useState } from 'react'
 import db from './Firebase';
 import Logo from '../../../images/logozawka.png'
+import { useHistory } from 'react-router-dom';
 
 const DataTableFirestore = () => {
     const [loading, setLoading] = useState(true);
     const [users, setUsers] = useState([]);
+
+    let history = useHistory();
+
+    const mainPage = () => {
+        history.push('/')
+    }
 
     useEffect(() => {
         const subscriber = db.collection('users').onSnapshot(snapshot => {
@@ -50,6 +57,7 @@ const DataTableFirestore = () => {
                         )
                     })
                 }
+                <button onClick={() => mainPage()}>Zagraj jeszcze raz</button>
             </div>
         );
 };
